@@ -39,6 +39,12 @@ gem 'bcrypt', '~> 3.1.7'
 #For User auth
 gem 'devise'
 
+#for bootstrapped login an signin
+gem 'devise-bootstrap-views', '~> 1.0'
+
+#for stock info
+gem 'iex-ruby-client'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
