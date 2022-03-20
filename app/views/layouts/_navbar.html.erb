@@ -14,14 +14,18 @@
 
 
 <body>
-  <div class="container col-12">
+  <div class="container">
     <nav class="navbar navbar-left">
       <div class="container-fluid">
         <%= link_to 'Search for Stocks', my_portfolio_path, method: :get, class: 'navbar-btn btn btn-success' %>
       </div>
     </nav>
     <nav class="navbar navbar-right">
-      <div class="container-fluid">
+      <div class="btn btn-info">
+        <%= image_tag('https://img.icons8.com/nolan/24/user.png') %>
+        <%= link_to current_user.full_name, edit_user_registration_path %>
+      </div>
+      <div class="container-fluid col-3">
         <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'navbar-btn btn btn-danger' %>
       </div>
     </nav>
