@@ -1,25 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Page</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
 <body>
- 
-
-  <div class ="container">
-
-    <h2>Welcome to the Stocks App</h2> 
-    <form class="navbar-form navbar-left" role="search">
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search">
-        <button type="submit" class="btn btn-default">Submit</button>
-      </div>
-      
-    </form>
-
-    <p id="notice"><%= notice %></p>
-
-    <br>
-
-    <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-
-
-  </div>
-
+  <%= render 'layouts/navbar' %>
 </body>
   

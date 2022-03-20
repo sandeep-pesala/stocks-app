@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  investor: one
+  stock: one
+
+two:
+  investor: two
+  stock: two

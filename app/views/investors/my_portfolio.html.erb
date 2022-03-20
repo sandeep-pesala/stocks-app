@@ -12,11 +12,8 @@
     </div>
 
   <% end %>
-  <% if @details_of_stock %>
-    <div class = "card card-header alert-success col-9">
-      <strong>Symbol: <%= @details_of_stock.ticker %> </strong>
-      <strong>Symbol: <%= @details_of_stock.name %> </strong>
-      <strong>Symbol: <%= @details_of_stock.last_price %> </strong>
-    </div>
-  <% end %>
+  <div id="results">
+    <%= render 'investors/search_results'%>
+  </div>
+  <%= render 'investors/my_stocks'%>
 </div>    

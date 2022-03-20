@@ -1,0 +1,23 @@
+<%= link_to(my_portfolio_path) %>
+
+<% if @details_of_stock %>
+  <div class = "card card-header alert-success col-9">
+    <strong>Symbol: <%= @details_of_stock.ticker %> </strong>
+    <strong>Symbol: <%= @details_of_stock.name %> </strong>
+    <strong>Symbol: <%= @details_of_stock.last_price %> $ </strong>
+    <br>
+    <% if current_user.can_track_stock(@details_of_stock.ticker) %>
+      <%= link_to("Add to Portfolio", user_stocks_path(user: current_user, ticker: @details_of_stock.ticker), class: 'btn btn-xs btn-success', method: :post) %>
+    <% else %>
+      <% if current_user.stock_already_added_to_portfolio?(@details_of_stock.ticker) %>
+        <span class="badge badge-secondary alert-warning">
+          You are already tracking <%= @details_of_stock.ticker %>
+        </span>
+      <% else %>
+        <span class="badge badge-secondary alert-danger">
+          You have reached your account limit to track the stocks
+        </span>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

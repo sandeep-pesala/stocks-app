@@ -1,0 +1,27 @@
+<% unless @my_stocks.blank?%>
+  <table class="table table-bordered col-9">
+    <thead>
+      <tr>
+        <th>Ticker</th>
+        <th>Company Name</th>
+        <th>Price</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @my_stocks.each do |stock| %>
+        <tr>
+          <th><%= stock.ticker %></th>
+          <th><%= stock.name %></th>
+          <th><%= stock.last_price %></th>
+          <th> 
+            <%= link_to("Stop Tracking",user_stock_path(stock) , class: 'btn btn-sm btn-danger', method: :delete, data: {confirm: "Are you sure?"} ) %> 
+          </th>
+        </tr>
+      <% end %>
+
+    </tbody>
+    
+  </table>
+<% end %>

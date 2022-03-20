@@ -20,6 +20,7 @@ class InvestorsController < ApplicationController
   end
 
   def my_portfolio 
+    @my_stocks = current_user.stocks
   end
 
   # POST /investors or /investors.json
