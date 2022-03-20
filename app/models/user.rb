@@ -21,4 +21,8 @@ class User < ApplicationRecord
     return false unless stock 
     !stocks.find_by(ticker: ticker_symbol).nil?
   end
+
+  def full_name 
+    "#{first_name} #{last_name}"
+  end
 end
