@@ -3,16 +3,15 @@
     <%= label_tag("Search for Stocks")%>
     <div class = "form-group row">
       <div class="col-9">
-        <%= text_field_tag(:stock, "Clear and Enter Symbol", autofocus: true, class: 'form-control') %>
+        <%= text_field_tag(:stock, "", autofocus: true, class: 'form-control') %>
       </div>
       <div class="col-3">
         <%= submit_tag("Search", class: 'btn btn-success')%>
       </div>
-
     </div>
 
   <% end %>
-  <div id="results">
+  <div id="results col-9">
     <%= render 'investors/search_results'%>
   </div>
   <%= render 'investors/my_stocks'%>
