@@ -1,0 +1,15 @@
+<% if @details_of_user%>
+  <div class="form-group row">
+    <div class="col-9">
+      <div class = "card card-header alert-success col-9">
+        <strong>First Name: <%= @details_of_user.first_name %> </strong>
+        <strong>Last Name: <%= @details_of_user.last_name %> </strong>
+        <strong>Email: <%= @details_of_user.email %></strong>
+      </div>
+    </div>
+  <div class="col-3">
+    <%= link_to("My Friends", friends_path ,class: 'btn btn-info btn-sm')%>
+  </div>
+  </div>
+<% end %>
+

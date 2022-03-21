@@ -3,8 +3,8 @@
     <div class="col-9">
       <div class = "card card-header alert-success col-9">
         <strong>Symbol: <%= @details_of_stock.ticker %> </strong>
-        <strong>Symbol: <%= @details_of_stock.name %> </strong>
-        <strong>Symbol: <%= @details_of_stock.last_price %> $ </strong>
+        <strong>Name: <%= @details_of_stock.name %> </strong>
+        <strong>Last Price: <%= @details_of_stock.last_price %> $ </strong>
         <br>
         <% if current_user.can_track_stock(@details_of_stock.ticker) %>
           <%= link_to("Add to Portfolio", user_stocks_path(user: current_user, ticker: @details_of_stock.ticker), class: 'btn btn-xs btn-success', method: :post) %>

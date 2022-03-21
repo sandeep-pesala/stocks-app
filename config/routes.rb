@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   root 'investors#index'
   get 'my_portfolio', to: 'investors#my_portfolio'
   get 'search_stock', to: 'stocks#search'
+  get 'friends', to: 'investors#my_friends'
+  get 'search_user', to: 'investors#search_users'
 end
