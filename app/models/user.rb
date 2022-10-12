@@ -29,11 +29,28 @@ class User < ApplicationRecord
     return "<Name Not Set>"
   end
 
-  def self.search_user(email_of_user)
-    begin
-      details = find_by(email: email_of_user)
-    rescue => exception
-      return nil  
+  def self.search_user(search_term)
+    if search_term.blank?  # blank? covers both nil and empty string
+      all
+    else
+      search_functions = []
+      search_terms = search_term.split(' ').map{|word| "%#{word.downcase}%"}
+      search_terms.length.times do |i|
+        search_functions << 'LOWER(email) LIKE ?'
+        search_functions << 'LOWER(first_name) LIKE ?'
+        search_functions << 'LOWER(last_name) LIKE ?'
+      end
+      like_patterns = search_functions.join(' or ')
+      where("#{like_patterns}", search_term, search_term, search_term)
     end
   end
+
+  def self.follow_user(target_user_id, current_user_id)
+    new_friendship = Friendship.create(user_id: current_user_id , friend_id: target_user_id)
+  end 
+
+  def self.unfollow_user(target_user_id, current_user_id)
+    old_friendship = Friendship.where(user_id: current_user_id, friend_id: target_user_id).destroy_all
+  end
+
 end

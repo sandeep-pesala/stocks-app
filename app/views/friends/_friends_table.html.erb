@@ -1,27 +1,32 @@
-<% unless @my_friends.blank?%>
+
   <table class="table table-bordered col-9">
     <thead>
       <tr>
         <th>First Name</th>
         <th>Last Name</th>
         <th>Email</th>
+        <th>Following</th>
+        <th>Followers</th>
       </tr>
     </thead>
+    <% unless @my_friends.blank?%>
 
-    <tbody>
-      <% @my_friends.each do |friend| %>
-        <tr>
-          <th><%= friend.first_name %></th>
-          <th><%= friend.last_name %></th>
-          <th><%= friend.email %></th>
-        </tr>
-      <% end %>
+      <tbody>
+        <% @my_friends.each do |friend| %>
+          <tr>
+            <th><%= friend.first_name %></th>
+            <th><%= friend.last_name %></th>
+            <th><%= friend.email %></th>
+            <th><%= friend.following %></th>
+            <th><%= friend.followers %></th>
+          </tr>
+        <% end %>
 
-    </tbody>
-    
+      </tbody>
+    <% else %>
+      <div class="badge badge-info">
+        You have no friends, get some life
+      </div>
+    <% end %>
+  
   </table>
-<% else %>
-  <div class="badge badge-info">
-    You have no friends, get some life
-  </div>
-<% end %>

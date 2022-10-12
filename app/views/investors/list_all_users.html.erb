@@ -1,0 +1,28 @@
+<% if current_user.admin and @all_users %>
+  <table class="table table-bordered col-9">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Followers</th>
+        <th>Following</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @all_users.each do |user| %>
+        <tr>
+          <th><%= user.first_name %></th>
+          <th><%= user.last_name %></th>
+          <th><%= user.email %></th>
+          <th><%= user.followers %></th>
+          <th><%= user.following %></th>
+        </tr>
+      <% end %>
+
+    </tbody>
+    
+  </table>
+<% end %>
+<%= link_to 'Home', root_path, method: :get, class: 'navbar-btn btn btn-success' %>

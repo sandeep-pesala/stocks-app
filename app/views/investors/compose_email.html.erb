@@ -1,0 +1,22 @@
+<div class="container">
+  <%= form_tag(send_email_path, method: :post) do |f| %>
+    <div class = "form-group col">
+      <div class="col-6 text-mute">
+        <div class="text-center">
+          <%= label_tag('','Compose your email below', class: 'btn btn-success btn-sm') %>
+        </div>
+        <%= label_tag('to','To') %>
+        <%= text_field_tag(:to, @investor.email , autofocus: true, class: 'form-control') %>
+      </div>
+      <br>
+      <div class="col-6">
+        <%= label_tag('content','Body') %>
+        <%= text_area_tag(:content, "" , method: :post, autofocus: true, class: 'form-control', size: '40x10') %>
+      </div>
+      <br>
+      <div class="col-6">
+        <%= submit_tag("Send Email", class: 'btn btn-success btn-sm')%>
+      </div>
+    </div>
+  <% end %>
+</div>

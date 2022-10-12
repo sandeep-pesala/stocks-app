@@ -18,15 +18,19 @@
       <div class="col-12">
         <%= link_to 'Search for Stocks', my_portfolio_path, method: :get, class: 'navbar-btn btn btn-success' %>
         <%= link_to 'My Friends', friends_path, method: :get, class: 'navbar-btn btn btn-info' %>
+        <% if current_user.admin %>
+          <%= link_to 'All Users', users_path, method: :get, class: 'navbar-btn btn btn-info' %>
+        <% end %>
 
         <div class="navbar-btn btn btn-warning">
           <%= image_tag('https://img.icons8.com/nolan/24/user.png') %>
-          <%= link_to current_user.full_name, edit_user_registration_path %>
+          <%= link_to current_user.full_name, investor_path(id: current_user.id), method: :get %>
         </div>
         <div class="navbar-btn btn btn-danger">
           <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
           <%= image_tag('https://img.icons8.com/external-tanah-basah-glyph-tanah-basah/24/000000/external-sign-out-user-interface-tanah-basah-glyph-tanah-basah.png') %>
         </div>
+        
       </div>
     </div>
   </body> 

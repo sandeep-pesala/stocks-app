@@ -4,7 +4,7 @@
     <%= label_tag("Search for Users")%>
     <div class = "form-group row">
       <div class="col-9">
-        <%= text_field_tag(:email, "", autofocus: true, class: 'form-control') %>
+        <%= text_field_tag(:search_word, "", autofocus: true, class: 'form-control') %>
       </div>
       <div class="col-2">
         <%= submit_tag("Search", class: 'btn btn-success btn-sm')%>

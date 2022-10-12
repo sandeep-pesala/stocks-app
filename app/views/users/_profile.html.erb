@@ -1,0 +1,30 @@
+<% if @investor %>
+  <div class="container">
+    <div class="card">
+      <div class="card-header text-center alert-success">
+        Details of the <%= @investor.full_name %>
+      </div>
+      <div class="card-body alert-warning">
+        <p class="card-text"> <strong>Email:</strong> <%= @investor.email %>    </p>
+        <p class="card-text"> <strong>Name:</strong> <%= @investor.full_name %> </p>
+        <% if current_user.id != @investor.id %>
+          <%= link_to('Follow', follow_path(id: @investor.id), method: :post,  class: 'col-3 btn btn-info btn-sm') %>
+          <%= link_to('Un Follow', unfollow_path(id: @investor.id), method: :delete,  class: 'col-3 btn btn-danger btn-sm') %>
+          <%= link_to('Send Email',compose_email_path(id: @investor.id), class: 'col-3 btn btn-success btn-sm' ) %>
+        <% else %> 
+          <%= link_to('Edit Profile Details', edit_user_registration_path, class: 'btn btn-danger btn-sm col-4') %>
+        <% end %>
+      </div>
+      <div class="card-footer alert-info">
+        <div class="row align-items-start">
+          <div class="card-text col-6"> <strong>Followers:</strong> <%= @investor.followers %>   </div>
+          <div class="card-text col-6"> <strong>Following:</strong> <%= @investor.following %>   </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<% end %>
+<div class="col-3">
+  <%= link_to("My Friends", friends_path ,class: 'btn btn-success btn-sm')%>
+</div>
